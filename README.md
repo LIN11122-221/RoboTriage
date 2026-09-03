@@ -1,10 +1,10 @@
 # RoboTriage
 
-RoboTriage is a ROS2-based decision-to-action framework developed for an MSc Robotics project at the University of Birmingham.
+RoboTriage is a ROS2-based decision-to-action framework developed as part of an MSc Robotics project at the University of Birmingham.
 
-The framework connects high-level battery-triage decisions with symbolic task planning, execution management, retry-based recovery, feedback and evaluation.
+The project focuses on the software layer between a high-level battery-triage decision and downstream robotic execution. It converts structured triage decisions into symbolic tasks, manages execution attempts and retries, and records performance results for evaluation.
 
-## System Architecture
+## System Overview
 
 The ROS2 pipeline contains five main nodes:
 
@@ -14,39 +14,25 @@ The ROS2 pipeline contains five main nodes:
 - Evaluation Node
 - Experiment Logger
 
-Main ROS2 topics:
+The main ROS2 topics are:
 
 - `/robotriage/decisions`
 - `/robotriage/task_plan`
 - `/robotriage/execution_feedback`
 - `/robotriage/evaluation_summary`
 
-## Execution Model
+## Repository Structure
 
-Execution uncertainty is represented using:
+```text
+src/robotriage_core/
+├── launch/
+├── robotriage_core/
+├── scripts/
+├── docs/
+├── package.xml
+├── setup.py
+└── setup.cfg
 
-- `success_probability`: probability that an individual execution attempt succeeds
-- `max_retries`: maximum number of additional attempts after the initial attempt
-
-The framework evaluates the trade-off between task reliability and execution cost under different parameter settings.
-
-## Experiments
-
-The final parameter sweep used:
-
-- Success probabilities: `0.1, 0.3, 0.5, 0.7, 0.9`
-- Maximum retries: `0, 1, 2, 4`
-- 30 repeated trials per configuration
-- 3 battery tasks per trial
-- 600 experimental trials
-- 1800 task-level outcomes
-
-## Environment
-
-- Ubuntu 22.04
-- ROS2 Humble
-- Python
-
-## Project Scope
-
-This prototype focuses on the decision-to-action software layer. Battery perception, physical battery disassembly and low-level robot control are outside the scope of the current implementation.
+results_30_final/
+├── CSV experiment results
+└── plots
