@@ -1,0 +1,34 @@
+# ROS2 generated folders
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE / temporary files
+.vscode/
+.idea/
+.agents/
+
+# Temporary/test experiment outputs
+results_test/
+results_smoke/
+results_retry/
+results_isolation_test/
+results_process_group_test/
+results_decision_level/
+results_30/
+results_30_clean/
+
+# Archives
+*.tar.gz
+
+# Intermediate experiment outputs
+experiment_results.csv
+results/
+results_p01_r0.csv
+results_p01_r4.csv
+results_retry_manual.csv
