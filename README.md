@@ -36,3 +36,25 @@ src/robotriage_core/
 results_30_final/
 ├── CSV experiment results
 └── plots
+
+## Execution Model
+
+Execution uncertainty is represented using two configurable parameters:
+
+- `success_probability`: probability that a single execution attempt succeeds
+- `max_retries`: maximum number of additional attempts allowed after the initial attempt
+
+A retry limit of `0` allows one execution attempt in total. A retry limit of `2` allows up to three attempts.
+
+The retry mechanism is handled by the Execution Manager so that execution failures can be managed without changing the original high-level triage decision.
+
+## Running the ROS2 Pipeline
+
+The workspace was developed using ROS2 Humble on Ubuntu 22.04.
+
+From the workspace directory:
+
+```bash
+colcon build
+source install/setup.bash
+ros2 launch robotriage_core robotriage_pipeline.launch.py
